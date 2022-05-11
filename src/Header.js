@@ -6,6 +6,7 @@ class Header extends React.Component {
     return (
       <header>
         <h1>Gallery of Horns!</h1>
+        <h2>Like your favorite image by clicking on an image below!</h2>
       </header>
     );
   }
