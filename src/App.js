@@ -3,8 +3,7 @@ import Header from './components/header/Header.js';
 import Main from './components/main/Main.js';
 import Footer from './components/footer/Footer.js';
 import data from './components/data.json';
-import { Modal } from 'react-bootstrap';
-
+import SelectedBeast from './components/selectedBeast/SelectedBeast.js'
 
 import './App.css';
 
@@ -13,14 +12,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      beast: '',
+      selectedBeast:{},
+      isModalDisplaying: false,
     }
   }
 
-  openModalHandler = (image, alt) => {
+  openModalHandler = (title, description, alt, imageURL) => {
+    let beast = {
+      title: title,
+      description: description,
+      alt: alt,
+      imageURL: imageURL,
+    }
     this.setState({
       isModalDisplaying: true,
-      beast: image,
+      selectedBeast: beast,
     });
   };
 
@@ -39,12 +45,11 @@ class App extends React.Component {
           openModalHandler={this.openModalHandler}
         />
         <Footer />
-        <Modal
-          show={this.state.isModalDisplaying}
-          onHide={this.closeModalHandler}
-        >
-          <Modal.Title><img src={this.state.beast} alt='' height='500em'/></Modal.Title>
-        </Modal>
+        <SelectedBeast 
+          isModalDisplaying={this.state.isModalDisplaying}
+          selectedBeast={this.state.selectedBeast}
+          closeModalHandler={this.closeModalHandler}
+        />
       </>
     );
   }
