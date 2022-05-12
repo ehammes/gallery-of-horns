@@ -1,19 +1,33 @@
 import React from 'react';
-import HornedBeast from '../hornedBeast/HornedBeast.js'
-
+import {Modal} from 'react-bootstrap';
+import './SelectedBeast.css';
 
 class SelectedBeast extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedBeast: '',
-    }
-  }
-
   render() {
 
-    return ()
+    return (
+      <Modal
+        show={this.props.isModalDisplaying}
+        onHide={this.props.closeModalHandler}
+      >
+        <Modal.Header closeButton>
+        <Modal.Title>
+          {this.props.selectedBeast.title}
+        </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img 
+            src ={this.props.selectedBeast.imageURL}
+            alt = {this.props.selectedBeast.imageURL}
+            height = '300vm'
+            width = 'auto'
+          ></img>
+          <br />
+          {this.props.selectedBeast.description}
+        </Modal.Body>
+      </Modal>
+    )
   }
 }
 
