@@ -2,6 +2,14 @@
 
 ## Time Estimates
 
+### Lab-03
+
+- Number and name of feature: Lab Class 02 - Passing functions as props
+- Estimate of time needed to complete: 2 hours
+- Start time: 4:30pm
+- Finish time: 6:00pm
+- Actual time needed to complete: Need to spend additional time on creating the SelectedBeast component, currently using existing components
+
 ### Lab-02
 
 - Number and name of feature: Lab Class 02 - React State and Props, JSON file
