@@ -17,6 +17,9 @@ class HornedBeast extends React.Component {
     });
   };
 
+  handleImageClick = () => {
+    this.props.openModalHandler(this.props.imageURL)
+  }
 
   render() {
     // console.log(this.props.title);
@@ -26,32 +29,37 @@ class HornedBeast extends React.Component {
     // console.log(this.props.idx);
 
     return (
-        <Col className='mb-4 mt-4'>
-          <Card
-            border='dark'
-            className='bg-light text-dark cards h-100'
-            style={{width:'18em'}}
-          >
-            <Card.Header className='text-center'>
+      <Col className='mb-4 mt-4'>
+        <Card
+          border='dark'
+          className='bg-light text-dark cards h-100'
+        >
+          <Card.Header 
+            className='text-center'
+            >
               {this.props.title}
-            </Card.Header>
-            <Card.Img
-              variant="top"
-              onClick={this.likeImage}
-              src={this.props.imageURL}
-              alt={this.props.alt}
-              title={this.props.title}
-            />
-            <Card.Body>
-              <Card.Title>
-                {this.props.description}
-              </Card.Title>
-              <Card.Text>
-                👍: {this.state.votes}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+          </Card.Header>
+          <Card.Img
+            variant="top"
+            onClick= {() => {
+              this.likeImage();
+              this.handleImageClick();
+              }}
+            src={this.props.imageURL}
+            alt={this.props.alt}
+            title={this.props.title}
+            openModalHandler={this.props.openModalHandler}
+          />
+          <Card.Body>
+            <Card.Title>
+              {this.props.description}
+            </Card.Title>
+            <Card.Text>
+              👍: {this.state.votes}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
     )
   }
 }
