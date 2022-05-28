@@ -22,11 +22,6 @@ class HornedBeast extends React.Component {
   }
 
   render() {
-    // console.log(this.props.title);
-    // console.log(this.props.src);
-    // console.log(this.props.alt);
-    // console.log(this.props.description);
-    // console.log(this.props.idx);
 
     return (
       <Col className='mb-4 mt-4'>

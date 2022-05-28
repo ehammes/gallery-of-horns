@@ -1,24 +1,10 @@
 import React from 'react';
 import HornedBeast from '../hornedBeast/HornedBeast.js'
-import {Container, Row, Form} from 'react-bootstrap';
+import { Container, Row, Form } from 'react-bootstrap';
 import './Main.css'
 
 class Main extends React.Component {
-  constructor(props){
-    super(props);
-    this.state= {
-      selectedFilter: ''
-    }
-  }
 
-
-handleSubmit = event =>{
-  event.preventDefault();
-  this.setState( {
-    selectedFilter: event.target.selectedFilter.value,
-  });
-  console.log(this.state);
-}
 
   render() {
 
@@ -37,16 +23,15 @@ handleSubmit = event =>{
 
     return (
       <main className="main-area">
-          <p>Filter Beasts by the # of Horns</p>
-        <Form onClick={this.handleSubmit}>
+        <p>Filter Beasts by the # of Horns</p>
+        <Form>
           <Form.Label>Filter:</Form.Label>
-          <Form.Select>
-            <option></option>
-            <option>placeholder</option>
-            <option>placeholder</option>
-            <option>placeholder</option>
-            <option>placeholder</option>
-            <option>placeholder</option>
+          <Form.Select onChange={this.props.handleSelect}>
+            <option>Choose # of Horns</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='100'>100</option>
           </Form.Select>
         </Form>
         <Container>
