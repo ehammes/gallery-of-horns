@@ -7,7 +7,7 @@ class Header extends React.Component {
       <header>
         <h1>Gallery of Horns!</h1>
         <br />
-        <h3>Like your favorite image by clicking on an image below!</h3>
+        <h3>Like your Favorite Horned Beast by Clicking on an Image Below!</h3>
         <br />
       </header>
     );

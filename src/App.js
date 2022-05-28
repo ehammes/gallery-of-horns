@@ -14,6 +14,7 @@ class App extends React.Component {
     this.state = {
       selectedBeast:{},
       isModalDisplaying: false,
+      data: data
     }
   }
 
@@ -36,13 +37,43 @@ class App extends React.Component {
     });
   };
 
+  handleSelect = event => {
+    let filter = event.target.value;
+    if (filter === '1') {
+      let oneHorn = data.filter(num => num.horns === 1);
+      this.setState({
+        data: oneHorn
+      })
+    } else if (filter === '2') {
+      let twoHorn = data.filter(num => num.horns === 2);
+      this.setState({
+        data: twoHorn
+      })
+    } else if (filter === '3') {
+      let threeHorn = data.filter(num => num.horns === 3);
+      this.setState({
+        data: threeHorn
+      })
+    } else if (filter === '100') {
+      let hundredHorn = data.filter(num => num.horns === 100);
+      this.setState({
+        data: hundredHorn
+      })
+    } else {
+      this.setState({
+        data: data
+      })
+    }
+  }
+
   render() {
     return (
       <>
         <Header />
         <Main
-          data={data}
+          data={this.state.data}
           openModalHandler={this.openModalHandler}
+          handleSelect={this.handleSelect}
         />
         <Footer />
         <SelectedBeast 
